@@ -1,0 +1,133 @@
+//1.
+//2. If your name has an 'S' in it (case insensitive) then you play banjo!
+function areYouPlayingBanjo(name) {
+
+        // Don't forget to return your output!
+    for (let i = 0; i <= name.length; i++) {
+       let str = name.toLowerCase();
+        if (str[i] === 's'){
+            return `${name} plays banjo!`;
+        } else {
+            return `${name} does not play banjo!`
+        }
+    }
+}
+
+//3. Miles per minute: given a function which takes in a speed (in mph) and minutes (positive integer), return the number of miles traveled
+
+function miles(speed, minutes) {
+    let distance = (speed)/60*(minutes);
+    return distance;
+}
+
+//4. Party at My House: All my friends have been reporting how many people they are bringing to my house. This is a function to total up all their separate reports
+
+function totalFriends(arr) {
+    let total = 0;
+    for (let i=0; i < arr.length; i++){
+        total+=arr[i];
+    } 
+    return total;
+} 
+
+//5. Cookie Baking: Grandma likes to make 2 cookies a person, but it there are less than 10 people, then she makes 3 cookies per person.
+
+function totalFriends(arr) {
+    let total = 0;
+    for (let i=0; i < arr.length; i++){
+        total+=arr[i];
+    } 
+    return total;
+} 
+
+//6. Counting duplicate: write a program to find the total number of duplicate elements in an array
+function countDuplicates(arr) {
+    let m = new Map();
+    let duplicates = 0;
+
+    for (let i = 0; i<arr.length; i++) {
+      
+        if (m.has(arr[i])) {
+            let occ = m.get(arr[i]);
+            m.set(arr[i], occ+1);
+        } else {
+            m.set(arr[i], 1);
+        }
+    } 
+    for (let values of m.values()) {
+        if (values > 1){
+            duplicates += 1;
+        }
+    }
+    return duplicates;    
+
+}
+
+
+//7. Palindrome: write a program to see if a string is or isn't a palindrome
+
+OPTION 1:
+function palindrome(str) {
+     str = str.toLowerCase();
+     let reversed = '';
+     for (let i = str.length - 1; i >=0; i--) {
+         reversed += str[i]
+     }
+    
+     if (reversed === str) {
+         return("true");
+     } else {
+         return("false");
+     }
+ }
+
+OPTION 2:
+function palindrome(str){
+    str = str.toLowerCase();
+    let queryLetter = 0
+    for (i = 0; i<(str.length/2); i++){
+        if (str[i] !== str[str.length-[i+1]]) {
+            return "false";
+        }
+    }
+    return "true";
+}
+
+//8. Find the first repeating letter in a string
+function firstRepeatingLetter(str) {
+    for (let outer = 0; outer < str.length; outer++){
+        for (var inner = outer + 1; inner < str.length; inner++) {
+            if (str[outer]===str[inner]){
+                return str[outer];
+            }
+        }
+    }   
+}
+
+//9. Utopian Tree: Tree has two growth cycles. During the monsoon cycle, it doubles, during the summer, it increases by 1 meter. The 1 meter sapling is planted during the monsoon season. 
+
+function getHeight(cycles) {
+    let height = 1;
+   for (let cycle = 1; cycle <= cycles; cycle++){
+    if (cycle%2===0) {
+        height += 1;
+    } else {
+        height *= 2;
+    }
+   } 
+    return height;
+}
+
+
+// 10. Print a right triangle
+function rightTriangle(rows) {
+    let triangle = '';
+    for (j = rows; j >= 0; j--){
+        for (let i = 0; i < rows; i++) {
+            triangle += '*';
+        }
+        triangle+='\n';
+        rows--;
+    }  
+    return triangle;
+}
